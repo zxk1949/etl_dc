@@ -11,7 +11,7 @@ import pymysql
 from pymysql.cursors import DictCursor
 from DBUtils.PooledDB import PooledDB
 
-from etc import config as Config
+from etc import config as desc_poooldb
 
 """
 Config是一些数据库的配置文件
@@ -46,17 +46,17 @@ class Mysql(object):
 
            if dbname == 'groot_data_center':
                __pool = PooledDB(creator=pymysql, mincached=5, maxcached=30,
-                              host=Config.db_host70, port=Config.db_port70, user=Config.db_user70,
-                              passwd=Config.db_password70,
-                              db=Config.db_name70, charset='utf8mb4', cursorclass=DictCursor, autocommit=1)
+                              host=desc_poooldb.db_host70, port=desc_poooldb.db_port70, user=desc_poooldb.db_user70,
+                              passwd=desc_poooldb.db_password70,
+                              db=desc_poooldb.db_name70, charset='utf8mb4', cursorclass=DictCursor, autocommit=1)
                return __pool.connection()
 
 
            if dbname == 'qa_test_emp':
                 __pool = PooledDB(creator=pymysql, mincached=5, maxcached=30,
-                              host=Config.db_host71, port=Config.db_port71, user=Config.db_user71,
-                              passwd=Config.db_password71,
-                              db=Config.db_name71, charset='utf8mb4', cursorclass=DictCursor, autocommit=1)
+                              host=desc_poooldb.db_host71, port=desc_poooldb.db_port71, user=desc_poooldb.db_user71,
+                              passwd=desc_poooldb.db_password71,
+                              db=desc_poooldb.db_name71, charset='utf8mb4', cursorclass=DictCursor, autocommit=1)
                 return __pool.connection()
 
     def getAll(self,sql,param=None):

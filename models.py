@@ -10,13 +10,16 @@ from sqlalchemy.sql import func
 
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+from etc import config as Config
+
+url=Config.init_config()
 
 # 创建ORM基类
 Base = declarative_base()
 # 创建MySQL数据库引擎
 #engine = create_engine('mysql+mysqlconnector://root:root@10.208.0.118:33066/dba_test', echo=True)
 # 如果使用PyMySQL，则替换连接字符串为：
-engine = create_engine('mysql+pymysql://root:root@10.208.0.118:33066/dba_test', echo=True)
+engine = create_engine(url, echo=True)
 
 class ETLConfig(Base):
     __tablename__ = 'etl_config'

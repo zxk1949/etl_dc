@@ -5,7 +5,9 @@ import os
 import sys
 import datetime,time
 
-
+def init_db_info():
+    url='mysql+pymysql://root:root@10.208.0.118:33066/dba_test'
+    return url
 
 #impush
 db_host1='10.89.90.14'
